@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logimg from '../assets/verify.png'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
 function Login() {
+
+    const [email, setemail] = useState("")
+    const [password, setpassword] = useState("")
+
+    const logincheck =async()=>{
+        try{
+         let data = await axios.post("http://localhost:4000/admin/login",{email:email,password:password})
+        }
+        catch(err)
+        {
+            console.log(err);
+            
+        }
+    }
     return (
         <>
             <section className='bg-violet-300 w-screen h-screen flex flex-col justify-center items-center'>
@@ -13,16 +28,17 @@ function Login() {
                     </div>
                     <div className='flex flex-col  gap-5 items-center'>
                         <input id='email'
-                            required name='email
-                            ' type="email"
+                            required name='email' type="email"
+                            value={email}
+                            onChange={(e)=>{setemail(e.target.value)}}
                             className='text-black w-50 h-8 border rounded bg-white' placeholder='Enter Your Email' />
                         <input id='password'
                             required name='password'
                             type="password"
+                            value={password}
+                            onChange={(e)=>{setpassword(e.target.value)}}
                             className='text-black w-50 h-8 border rounded bg-white' placeholder='Enter Your Password' />
-                        <Link to={"/loginsubmit"}
-                            className='text-xl font-bold border rounded w-20 hover:text-white text-center h-8'>
-                            Login</Link>
+                        <button type='submit' className='border' onClick={logincheck}>Login</button>
                     </div>
                 </div>
                 <div>

@@ -38,7 +38,7 @@ function Login() {
                             value={password}
                             onChange={(e)=>{setpassword(e.target.value)}}
                             className='text-black w-50 h-8 border rounded bg-white' placeholder='Enter Your Password' />
-                        <button type='submit' className='border' onClick={logincheck}>Login</button>
+                        <button type='submit' className='border bg-gray-300 p-2 rounded-xl' onClick={logincheck}>Login</button>
                     </div>
                 </div>
                 <div>

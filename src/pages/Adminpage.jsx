@@ -1,10 +1,13 @@
 import React from 'react'
 
 function Adminpage() {
-  return (
+    return (
 
-<>
-</>)
+        <>
+        <section>
+            <div></div>
+        </section>
+        </>)
 }
 
 export default Adminpage

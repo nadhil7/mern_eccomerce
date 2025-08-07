@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import AdminLogin from './pages/AdminLogin'
 import UserSignup from './pages/UserSignup'
 import Adminpage from './pages/Adminpage'
+import Userlogin from './pages/Userlogin'
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Route path='/' element={<Home/>}/>
       <Route path='/admin/login' element={<AdminLogin/>}/>
       <Route path='/admindashboard' element={<Adminpage/>}/>
+      <Route path='/login ' element={<Userlogin/>}/>
       <Route path='/user/signup' element={<UserSignup/>}/>
     </Routes>
   )

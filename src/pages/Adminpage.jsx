@@ -4,8 +4,9 @@ function Adminpage() {
     return (
         <>
             <section>
+                <div>
                 <Sidebar/>
-                <div><p>Adminpage</p></div>
+                    <p>Adminpage</p></div>
             </section>
         </>
     )

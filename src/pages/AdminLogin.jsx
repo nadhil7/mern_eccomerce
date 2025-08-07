@@ -28,12 +28,12 @@ function AdminLogin() {
     }
     return (
         <>
-            <section className='bg-violet-300 w-screen h-screen flex flex-col justify-center items-center'>
+            <section className='bg-gray-200 w-screen h-screen flex flex-col justify-center items-center'>
                 <div
                     className='bg-gray-500 w-80 h-80 items-center justify-center flex flex-col gap-10 rounded-2xl'>
                     <div className='flex gap-2'>
                         <img src={logimg} alt="" className='w-8 h-8' />
-                        <h3 className='text-xl font-bold '>Login Here</h3>
+                        <h3 className='text-xl font-bold '>Admin Login</h3>
                     </div>
                     <div className='flex flex-col  gap-5 items-center'>
                         <input id='email'

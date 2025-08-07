@@ -9,7 +9,7 @@ import Product from '../assets/ProductManagemnet.png'
 function Sidebar() {
     return (
         <>
-            <div className='w-20 hover:w-66 hover:transition-all hover:duration-700 z-10 overflow-x-hidden h-screen bg-violet-400'>
+            <div className='w-20 hover:w-66 hover:transition-all hover:duration-700 z-10 overflow-x-hidden h-screen bg-gray-200 fixed'>
                 <div className=' flex flex-col'>
                     <div className='h-25 flex justify-center gap-3 items-center hover:text-white hover:duration-700 '>
                         <img src={Adminprofilepic} className='w-10' alt="" />
@@ -37,7 +37,7 @@ function Sidebar() {
                         </div>
                     </div>
                 </div>
-                <div className='flex bg-red-300 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
+                <div className='flex bg-gray-200 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
                     <div></div>
                     <img src={AdminLogout} className='w-8' alt="" />
                     <p>Logout</p>

@@ -1,12 +1,14 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
+import Table from '../components/Table'
 function Adminpage() {
     return (
         <>
             <section>
-                <div>
-                <Sidebar/>
-                    <p>Adminpage</p></div>
+                <div className='flex gap-40'>
+                    <Sidebar />
+                    <Table/>
+                </div>
             </section>
         </>
     )

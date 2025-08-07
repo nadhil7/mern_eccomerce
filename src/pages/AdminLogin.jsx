@@ -1,20 +1,29 @@
 import React, { useState } from 'react'
 import logimg from '../assets/verify.png'
-import { Link } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-function Login() {
+
+
+function AdminLogin() {
 
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
+    const [message,setmessage]=useState("")
+    const navigate = useNavigate();
 
-    const logincheck =async()=>{
-        try{
-         let data = await axios.post("http://localhost:4000/admin/login",{email:email,password:password})
+    const logincheck = async () => {
+        try {
+            const response = await axios.post("http://localhost:4000/admin/login", { email: email, password: password })
+            if (response.data.success) {
+                navigate("/admindashboard");
+            }
+            else{
+                setmessage(response.data.message    )
+            }
         }
-        catch(err)
-        {
+        catch (err) {
             console.log(err);
-            
+            setmessage({message:"error ocuured"})
         }
     }
     return (
@@ -30,23 +39,22 @@ function Login() {
                         <input id='email'
                             required name='email' type="email"
                             value={email}
-                            onChange={(e)=>{setemail(e.target.value)}}
-                            className='text-black w-50 h-8 border rounded bg-white' placeholder='Enter Your Email' />
+                            onChange={(e) => { setemail(e.target.value) }}
+                            className='text-black w-50 h-8 border rounded bg-white' placeholder=' Enter Your Email' />
                         <input id='password'
                             required name='password'
                             type="password"
                             value={password}
-                            onChange={(e)=>{setpassword(e.target.value)}}
-                            className='text-black w-50 h-8 border rounded bg-white' placeholder='Enter Your Password' />
+                            onChange={(e) => { setpassword(e.target.value) }}
+                            className='text-black w-50 h-8 border rounded bg-white' placeholder=' Enter Your Password' />
                         <button type='submit' className='border bg-gray-300 p-2 rounded-xl' onClick={logincheck}>Login</button>
                     </div>
                 </div>
                 <div>
-                    <Link to={"/Signup"}>Signup</Link>
                 </div>
             </section>
         </>
     )
 }
 
-export default Login 
+export default AdminLogin 

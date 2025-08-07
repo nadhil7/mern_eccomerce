@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Signup() {
+function UserSignup() {
     return (
         <>
             <div class="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -25,9 +25,7 @@ function Signup() {
                                     <svg class="h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd"
                                             d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1
-                                             1v4a
-                                            1 1 0 102 0V6a1 1 0 00-1-1z"
-                                            clip-rule="evenodd">
+                                             1v4a 1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd">
                                         </path>
                                     </svg>
                                 </div>
@@ -60,9 +58,9 @@ function Signup() {
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
                                 <input id="password" name="password" type="password" required=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400
-                                     focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out
-                                      sm:text-sm sm:leading-5" />
+                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md
+                                     placeholder-gray-400 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 
+                                     transition duration-150 ease-in-out sm:text-sm sm:leading-5" />
                             </div>
                         </div>
 
@@ -72,9 +70,9 @@ function Signup() {
                             </label>
                             <div class="mt-1 rounded-md shadow-sm">
                                 <input id="password_confirmation" name="password_confirmation" type="password" required=""
-                                    class="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md placeholder-gray-400
-                                     focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out
-                                      sm:text-sm sm:leading-5" />
+                                    class="appearance-none block w-full px-3 py-2 border-gray-300 rounded-md placeholder-gray-400
+                                focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out
+                                sm:text-sm sm:leading-5 border" />
                             </div>
                         </div>
 
@@ -82,8 +80,8 @@ function Signup() {
                             <span class="block w-full rounded-md shadow-sm">
                                 <button type="submit"
                                     class="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md
-                                     text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo
-                                      active:bg-indigo-700 transition duration-150 ease-in-out">
+                                     text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:border-indigo-700 
+                                     focus:shadow-outline-indigo active:bg-indigo-700 transition duration-150 ease-in-out">
                                     Create account
                                 </button>
                             </span>
@@ -95,4 +93,4 @@ function Signup() {
     )
 }
 
-export default Signup
+export default UserSignup

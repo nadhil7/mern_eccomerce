@@ -5,6 +5,8 @@ import AdminLogout from '../assets/AdminLogout.png'
 import category from '../assets/categorySidebar.png'
 import order from '../assets/OrderSidebar.png'
 import Product from '../assets/ProductManagemnet.png'
+import { Link } from 'react-router-dom'
+import axios from 'axios'
 
 function Sidebar() {
     return (
@@ -15,11 +17,11 @@ function Sidebar() {
                         <img src={Adminprofilepic} className='w-10' alt="" />
                     </div>
                     <div className='flex flex-col gap-3 pb-60'>
-                        <div className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
-                            <div></div>
+                        <Link to={"/admindashboard"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
+                             <div></div>
                             <img src={Usermanagement} className='w-8' alt="" />
-                            <p>User Management</p>
-                        </div>
+                            <p>User Management</p> 
+                        </Link>
                         <div className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
                             <div></div>
                             <img src={Product} className='w-8' alt="" />

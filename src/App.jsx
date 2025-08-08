@@ -5,6 +5,7 @@ import AdminLogin from './pages/AdminLogin'
 import UserSignup from './pages/UserSignup'
 import Adminpage from './pages/Adminpage'
 import UserLogin from './pages/Userlogin'
+import ProductManagement from './pages/ProductManagement'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path='/admindashboard' element={<Adminpage />} />
       <Route path='/login' element={<UserLogin />} />
       <Route path='/user/signup' element={<UserSignup />} />
+      <Route path='' element={<ProductManagement/>}/>
     </Routes>
   )
 }

@@ -16,7 +16,7 @@ function ProductTable() {
         data();
     }, []);
     const EditProduct = async (id) => {
-        
+
     }
 
     return (
@@ -27,9 +27,10 @@ function ProductTable() {
                         <tr className="bg-gray-100">
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Index</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Name</th>
-                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">categoryName</th>
+                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">category</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">brand</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Price</th>
+                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Image</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Edit</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@ function ProductTable() {
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.categoryname}</td>
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.brand}</td>
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.price}</td>
+                                <td className="w-2/4 p-4 font-semibold text-xl"><img src={`http://localhost:4000/${i.image}`} alt="" /></td>
                                 <td className='w-1/4 '><button className='w-20 h-10 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i._id) }}>Edit</button></td>
                             </tr>
                         )}

@@ -5,20 +5,18 @@ import React, { useEffect, useState } from 'react'
 function ProductTable() {
     const [product, setproduct] = useState([])
     const [Status, setstatus] = useState("");
-    
+
     const data = async () => {
         const response = await Instance.get("/product/",)
         console.log(response.data);
-        
+
         setproduct(response.data)
     }
     useEffect(() => {
         data();
     }, []);
     const EditProduct = async (id) => {
-        console.log(id);
-        await Instance.patch(`/product/edit/${id}`)
-        data();
+        
     }
 
     return (
@@ -29,7 +27,7 @@ function ProductTable() {
                         <tr className="bg-gray-100">
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Index</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Name</th>
-                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">categoryId</th>
+                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">categoryName</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">brand</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Price</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Edit</th>
@@ -40,10 +38,10 @@ function ProductTable() {
                             <tr key={index}>
                                 <td className='w-2/4 p-4 font-semibold  text-xl'>{index + 1}</td>
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.name}</td>
-                                <td className="w-2/4 p-4 font-semibold text-xl">{i.categoryId}</td>
+                                <td className="w-2/4 p-4 font-semibold text-xl">{i.categoryname}</td>
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.brand}</td>
-                                <td className="w-2/4 p-4 font-semibold text-xl">{i.price }</td>
-                                <td className='w-1/4 '><button className='w-20 h-10 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i._id) }}>Action</button></td>
+                                <td className="w-2/4 p-4 font-semibold text-xl">{i.price}</td>
+                                <td className='w-1/4 '><button className='w-20 h-10 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i._id) }}>Edit</button></td>
                             </tr>
                         )}
                     </tbody>

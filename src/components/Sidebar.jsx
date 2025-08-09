@@ -27,16 +27,16 @@ function Sidebar() {
                             <img src={Product} className='w-8' alt="" />
                             <p>Product Management</p> 
                         </Link>
-                        <div className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
-                            <div></div>
+                        <Link to={"/admin/category"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
+                             <div></div>
                             <img src={category} className='w-8' alt="" />
-                            <p>Category Management</p>
-                        </div>
-                        <div className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
-                            <div></div>
+                            <p>Category Management</p> 
+                        </Link>
+                        <Link to={"/admin/order"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
+                             <div></div>
                             <img src={order} className='w-8' alt="" />
-                            <p>Order Management</p>
-                        </div>
+                            <p>Order Management</p> 
+                        </Link>
                     </div>
                 </div>
                 <div className='flex bg-gray-200 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>

@@ -11,7 +11,15 @@ function ProductTable() {
         console.log(response.data);
 
         setproduct(response.data)
-   
+    }
+    useEffect(() => {
+        data();
+    }, []);
+    const EditProduct = async (id) => {
+        setshow(true);
+        const response = await Instance.get()
+    }
+
     return (
         <>
             <div className='w-full h-full items-center flex flex-col justify-center'>

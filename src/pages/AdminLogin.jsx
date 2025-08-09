@@ -15,10 +15,10 @@ function AdminLogin() {
         try {
             const response = await axios.post("http://localhost:4000/admin/login", { email: email, password: password },{withCredentials:true})
             if (response.data.success) {
-                navigate("/admindashboard");
+                navigate("/admin/dashboard");
             }
             else{
-                setmessage(response.data.message    )
+                setmessage(response.data.message)
             }
         }
         catch (err) {

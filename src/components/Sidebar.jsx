@@ -17,16 +17,16 @@ function Sidebar() {
                         <img src={Adminprofilepic} className='w-10' alt="" />
                     </div>
                     <div className='flex flex-col gap-3 pb-60'>
-                        <Link to={"/admindashboard"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
+                        <Link to={"/admin/dashboard"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
                              <div></div>
                             <img src={Usermanagement} className='w-8' alt="" />
                             <p>User Management</p> 
                         </Link>
-                        <div className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
-                            <div></div>
+                         <Link to={"/admin/product"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
+                             <div></div>
                             <img src={Product} className='w-8' alt="" />
-                            <p>Product Management</p>
-                        </div>
+                            <p>Product Management</p> 
+                        </Link>
                         <div className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
                             <div></div>
                             <img src={category} className='w-8' alt="" />

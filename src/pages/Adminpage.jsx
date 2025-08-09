@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../components/Sidebar'
-import Table from '../components/Table'
+import Table from '../components/UserTable'
 function Adminpage() {
     return (
         <>

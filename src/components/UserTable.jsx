@@ -25,7 +25,7 @@ function Table() {
                 <table className="table-fixed ml-56 w-10/12 text-center">
                     <thead className='text-center'>
                         <tr className="bg-gray-100">
-                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">ID</th>
+                            <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Index</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Name</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Email</th>
                             <th className="w-1/4  p-4 text-gray-600 font-bold uppercase">Phone</th>

@@ -12,10 +12,10 @@ function App() {
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/admin/login' element={<AdminLogin />} />
-      <Route path='/admindashboard' element={<Adminpage />} />
+      <Route path='/admin/dashboard' element={<Adminpage />} />
       <Route path='/login' element={<UserLogin />} />
       <Route path='/user/signup' element={<UserSignup />} />
-      <Route path='' element={<ProductManagement/>}/>
+      <Route path='/admin/product' element={<ProductManagement/>}/>
     </Routes>
   )
 }

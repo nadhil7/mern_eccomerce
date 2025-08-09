@@ -1,8 +1,13 @@
 import React from 'react'
+import Sidebar from '../components/Sidebar'
 
 function ProductManagement() {
   return (
-    <div>ProductManagement</div>
+    <>
+      <section>
+        <Sidebar/>
+      </section>
+    </>
   )
 }
 

@@ -7,6 +7,7 @@ import Adminpage from './pages/Adminpage'
 import UserLogin from './pages/Userlogin'
 import ProductManagement from './pages/ProductManagement'
 import CategoryManagement from './pages/CategoryManagement'
+import UserManagement from './pages/UserManagement'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route path='/admin/dashboard' element={<Adminpage />} />
       <Route path='/login' element={<UserLogin />} />
       <Route path='/user/signup' element={<UserSignup />} />
+      <Route path='/admin/User' element={<UserManagement />} />
       <Route path='/admin/product' element={<ProductManagement/>}/>
       <Route path='/admin/category' element={<CategoryManagement/>}/>
     </Routes>

@@ -18,8 +18,6 @@ function App() {
       <Route path='/login' element={<UserLogin />} />
       <Route path='/user/signup' element={<UserSignup />} />
       <Route path='/admin/User' element={<UserManagement />} />
-      <Route path='/admin/product' element={<ProductManagement/>}/>
-      <Route path='/admin/category' element={<CategoryManagement/>}/>
     </Routes>
   )
 }

@@ -17,7 +17,7 @@ function ProductTable() {
     }, []);
     const EditProduct = async (i) => {
         setshow(true);
-        setupdate();
+        setupdate(i);
         seteditid(id)
     }
     const productedit = async (id) => {
@@ -92,6 +92,9 @@ function ProductTable() {
                     <input type="text" className='bg-gray-300 h-7 border' placeholder='discription' value={update.discription} />
                     <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={update.price} />
                     <input type="file" className='bg-gray-300 h-7 border w-45' />
+                    <div className='w-40'>
+                        <img src={`http://localhost:4000/${update.image}`} alt="" />
+                    </div>
                     <div className='flex justify-center items-center gap-4  '>
                         <button className='p-2 bg-gray-400 rounded text-center'>Cancel</button>
                         <button className='p-2 bg-green-700 rounded text-center' onClick={() => { productedit(update._id) }}>Save</button>

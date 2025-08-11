@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 function Table() {
     const [user, setuser] = useState([])
     const [Status, setstatus] = useState("");
-    
+
     const data = async () => {
         const response = await Instance.get("/admin/users",)
         setuser(response.data)
@@ -18,6 +18,7 @@ function Table() {
         const response = await Instance.patch(`/admin/useredit/${id}`)
         data();
     }
+   
 
     return (
         <>

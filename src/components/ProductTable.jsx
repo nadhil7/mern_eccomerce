@@ -64,7 +64,7 @@ function ProductTable() {
                         <input type="text" className='bg-gray-300 h-7 border' value={update.discription} />
                         <input type="text" className='bg-gray-300 h-7 border' value={update.price} />
                         <input type="image" className='bg-gray-300 h-7 border' />
-                    <div className='flex justify-center items-center gap-4  '>
+                        <div className='flex justify-center items-center gap-4  '>
                         <button className='p-2 bg-gray-400 rounded text-center'>Cancel</button>
                         <button className='p-2 bg-green-700 rounded text-center' onClick={() => { productedit(update._id)}}>Save</button>
                     </div>

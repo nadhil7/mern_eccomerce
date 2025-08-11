@@ -6,6 +6,7 @@ function ProductTable() {
     const [product, setproduct] = useState([])
     const [show, setshow] = useState(false);
     const [update, setupdate] = useState("")
+    const [editid, seteditid] = useState("")
 
     const data = async () => {
         const response = await Instance.get("/product/",)
@@ -14,33 +15,41 @@ function ProductTable() {
     useEffect(() => {
         data();
     }, []);
-    const EditProduct = async (id) => {
+    const EditProduct = async (i) => {
         setshow(true);
-        const response = await Instance.get(`/product/find/${id}`)
-        setupdate(response.data.productdata);
+        setupdate();
+        seteditid(id)
     }
     const productedit = async (id) => {
-        console.log(id);
         setshow(false);
-    }
-    const addproduct = async () => {
         try {
-            const response = await Instance.post("/product/add");
-            console.log(response.data);
-
+            if (editid) {
+                const response = await Instance.post(`product/edit/${id}`);
+                setproduct(response.data)
+                seteditid(null)
+            }
+            else {
+                const response = await Instance.post(`product/add`);
+                setproduct(response.data)
+            }
         }
         catch (err) {
             console.log(err);
         }
     }
-    // const adddiv = () => {
-    //     setshow(true);
-
-    // }
+    const addproduct = async () => {
+        try {
+            const response = await Instance.post("/product/add");
+            console.log(response.data);
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
     return (
         <>
             <div className='flex justify-end p-4'>
-                <button onClick={()=>{setshow(true)}}  className='p-4 bg-green-400 rounded-2xl font-bold'>Add +</button>
+                <button onClick={() => { setshow(true) }} className='p-4 bg-green-400 rounded-2xl font-bold'>Add +</button>
             </div>
             <div className='w-full h-full items-center flex flex-col justify-center'>
                 <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10 py-6 ">
@@ -67,7 +76,7 @@ function ProductTable() {
                                     <td className="w-2/4 p-4 font-semibold text-xl">{i.price}</td>
                                     <td className="w-2/4 p-4 font-semibold text-xl"><img src={`http://localhost:4000/${i.image}`} alt="" /></td>
                                     <td className='w-full flex flex-col gap-2 items-center justify-center'>
-                                        <button className='w-20 h-8 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i._id) }}>Edit</button>
+                                        <button className='w-20 h-8 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i) }}>Edit</button>
                                         <button className='w-20 h-8 rounded text-black font-bold  bg-red-600'>delete</button>
                                     </td>
                                 </tr>
@@ -77,11 +86,11 @@ function ProductTable() {
                 </div>
                 {show && <div className='bg-gray-500 w-fit h-full p-10 flex flex-col justify-center items-center gap-10'>
                     <h3 className='text-xl font-bold text-gray-900'>Edit here</h3>
-                    <input type="text" className='bg-gray-300 h-7 border'placeholder='name' value={update.name} />
-                    <input type="text" className='bg-gray-300 h-7 border'placeholder='categoryname' value={update.categoryname} />
-                    <input type="text" className='bg-gray-300 h-7 border'placeholder='brand' value={update.brand} />
-                    <input type="text" className='bg-gray-300 h-7 border'placeholder='discription' value={update.discription} />
-                    <input type="text" className='bg-gray-300 h-7 border'placeholder='price' value={update.price} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='name' value={update.name} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='categoryname' value={update.categoryname} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='brand' value={update.brand} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='discription' value={update.discription} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={update.price} />
                     <input type="file" className='bg-gray-300 h-7 border w-45' />
                     <div className='flex justify-center items-center gap-4  '>
                         <button className='p-2 bg-gray-400 rounded text-center'>Cancel</button>

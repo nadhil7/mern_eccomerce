@@ -5,11 +5,10 @@ import React, { useEffect, useState } from 'react'
 function ProductTable() {
     const [product, setproduct] = useState([])
     const [show, setshow] = useState(false);
+    const [update, setupdate] = useState("")
 
     const data = async () => {
         const response = await Instance.get("/product/",)
-        console.log(response.data);
-
         setproduct(response.data)
     }
     useEffect(() => {
@@ -17,7 +16,12 @@ function ProductTable() {
     }, []);
     const EditProduct = async (id) => {
         setshow(true);
-        const response = await Instance.get()
+        const response = await Instance.get(`/product/find/${id}`)
+        setupdate(response.data.productdata);
+    }
+    const productedit =async(id)=>{
+        console.log(id);
+        setshow(false);
     }
 
     return (
@@ -54,14 +58,15 @@ function ProductTable() {
                 </div>
                 {show && <div className='bg-gray-500 w-3/12 h-full  flex flex-col justify-center items-center gap-10'>
                     <h3 className='text-xl font-bold text-gray-900'>Edit here</h3>
-                    <input type="text" className='bg-gray-300 h-7 border' />
-                    <input type="text" className='bg-gray-300 h-7 border' />
-                    <input type="text" className='bg-gray-300 h-7 border' />
-                    <input type="text" className='bg-gray-300 h-7 border' />
-                    <input type="image" className='bg-gray-300 h-7 border' />
+                        <input type="text"  className='bg-gray-300 h-7 border' value={update.name} />
+                        <input type="text" className='bg-gray-300 h-7 border' value={update.categoryname} />
+                        <input type="text" className='bg-gray-300 h-7 border' value={update.brand} />
+                        <input type="text" className='bg-gray-300 h-7 border' value={update.discription} />
+                        <input type="text" className='bg-gray-300 h-7 border' value={update.price} />
+                        <input type="image" className='bg-gray-300 h-7 border' />
                     <div className='flex justify-center items-center gap-4  '>
                         <button className='p-2 bg-gray-400 rounded text-center'>Cancel</button>
-                        <button className='p-2 bg-green-700 rounded text-center' onClick={()=>{setshow(false)}}>Save</button>
+                        <button className='p-2 bg-green-700 rounded text-center' onClick={() => { productedit(update._id)}}>Save</button>
                     </div>
                 </div>}
             </div>

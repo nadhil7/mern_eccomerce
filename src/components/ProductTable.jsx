@@ -5,8 +5,14 @@ import React, { useEffect, useState } from 'react'
 function ProductTable() {
     const [product, setproduct] = useState([])
     const [show, setshow] = useState(false);
-    const [update, setupdate] = useState("")
     const [editid, seteditid] = useState("")
+    //states
+    const [name, setname] = useState("")
+    const [brand, setbrand] = useState("")
+    const [categoryname, setcategoryname] = useState("")
+    const [discription, setdiscription] = useState("")
+    const [price, setprice] = useState("")
+    const [oldimage, setoldimage] = useState("")
 
     const data = async () => {
         const response = await Instance.get("/product/",)
@@ -17,48 +23,15 @@ function ProductTable() {
     }, []);
     const EditProduct = async (i) => {
         setshow(true);
-        setupdate(i);
-        seteditid(id)
+        setname(i.name);
+        setcategoryname(i.categoryname)
+        setbrand(i.brand)
+        setprice(i.price)
+        setdiscription(i.discription)
+        setoldimage(i.image)
+        seteditid(i._id)
     }
-    const productedit = async (id) => {
-        setshow(false);
-        try {
-            if (editid) {
-                const formData = new formData();
-                formData.append("name", name);
-                formData.append("brand", brand);
-                formData.append("categoryname", categoryname);
-                formData.append("discription", discription);
-                formData.append("price", price);
-                const response = await Instance.post(`product/edit/${id}`,formData,{headers:{"Content-Type":"multipart/form-data"}});
-                setproduct(response.data)
-                seteditid(null)
-                setupdate(null)
-            }
-            else {
-                const formData = new formData();
-                formData.append("name", name);
-                formData.append("brand", brand);
-                formData.append("categoryname", categoryname);
-                formData.append("discription", discription);
-                formData.append("price", price);
-                const response = await Instance.post(`product/add`,formData,{headers:{"Content-Type":"multipart/form-data"}});
-                setproduct(response.data)
-            }
-        }
-        catch (err) {
-            console.log(err);
-        }
-    }
-    // const addproduct = async () => {
-    //     try {
-    //         const response = await Instance.post("/product/add");
-    //         console.log(response.data);
-    //     }
-    //     catch (err) {
-    //         console.log(err);
-    //     }
-    // }
+    
     return (
         <>
             <div className='flex justify-end p-4'>
@@ -99,18 +72,18 @@ function ProductTable() {
                 </div>
                 {show && <div className='bg-gray-500 w-fit h-full p-10 flex flex-col justify-center items-center gap-10'>
                     <h3 className='text-xl font-bold text-gray-900'>Edit here</h3>
-                    <input type="text" className='bg-gray-300 h-7 border' onChange={(e)=>{}} placeholder='name' value={update.name} />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='categoryname' value={update.categoryname} />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='brand' value={update.brand} />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='discription' value={update.discription} />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={update.price} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='name' value={name } />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='categoryname' value={ categoryname} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='brand' value={ brand} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='discription' value={discription } />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={ price} />
                     <input type="file" className='bg-gray-300 h-7 border w-45' />
                     <div className='w-40'>
-                        <img src={`http://localhost:4000/${update.image}`} alt="" />
+                        <img src={`http://localhost:4000/${oldimage}`} alt="" />
                     </div>
                     <div className='flex justify-center items-center gap-4  '>
                         <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false) }}>Cancel</button>
-                        <button className='p-2 bg-green-700 rounded text-center' onClick={() => { productedit(update._id) }}>Save</button>
+                        <button className='p-2 bg-green-700 rounded text-center' >Save</button>
                     </div>
                 </div>}
             </div>

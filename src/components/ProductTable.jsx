@@ -48,10 +48,12 @@ function ProductTable() {
             if (editid) {
                 const response = await Instance.put(`/product/edit/${editid}`, formData, { headers: { "Content-Type": "multypart:formdata" } })
                 setproduct(response.data)
+                data();
             }
             else {
                 const response = await Instance.post(`/product/add`, formData, { headers: { "Content-Type": "multypart:formdata" } })
                 setproduct(response.data)
+                data();
             }
         }
         catch (err) {
@@ -61,7 +63,7 @@ function ProductTable() {
     return (
         <>
             <div className='flex justify-end p-4'>
-                <button onClick={() => { setshow(true); saveproduct();seteditid(null) }} className='p-4 bg-green-400 rounded-2xl font-bold'>Add +</button>
+                <button onClick={() => { setshow(true); saveproduct(); seteditid(null) }} className='p-4 bg-green-400 rounded-2xl font-bold'>Add +</button>
             </div>
             <div className='w-full h-full items-center flex flex-col justify-center'>
                 <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10 py-6 ">

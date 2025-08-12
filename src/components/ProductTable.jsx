@@ -13,6 +13,7 @@ function ProductTable() {
     const [discription, setdiscription] = useState("")
     const [price, setprice] = useState("")
     const [oldimage, setoldimage] = useState("")
+    const [newimage, setnewimage] = useState("")
 
     const data = async () => {
         const response = await Instance.get("/product/",)
@@ -22,6 +23,8 @@ function ProductTable() {
         data();
     }, []);
     const EditProduct = async (i) => {
+        console.log(i);
+
         setshow(true);
         setname(i.name);
         setcategoryname(i.categoryname)
@@ -31,7 +34,29 @@ function ProductTable() {
         setoldimage(i.image)
         seteditid(i._id)
     }
-    
+    const saveproduct = async () => {
+        try {
+            const formData = new formData()
+            formData.append("name", name)
+            formData.append("brand", brand)
+            formData.append("categoryname", categoryname)
+            formData.append("discription", discription)
+            formData.append("price", price)
+            formData.append("newimage", newimage)
+            if (editid) {
+                const response = await Instance.put(`/product/edit/${editid}`, formData, { headers: { "Content-Type": "multypart:formdata" } })
+                setproduct(response.data)
+            }
+            else {
+                const response = await Instance.put(`/product/add`, formData, { headers: { "Content-Type": "multypart:formdata" } })
+                setproduct(response.data)
+            }
+        }
+        catch (err) {
+            console.log(err);
+            
+        }
+    }
     return (
         <>
             <div className='flex justify-end p-4'>
@@ -72,18 +97,18 @@ function ProductTable() {
                 </div>
                 {show && <div className='bg-gray-500 w-fit h-full p-10 flex flex-col justify-center items-center gap-10'>
                     <h3 className='text-xl font-bold text-gray-900'>Edit here</h3>
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='name' value={name } />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='categoryname' value={ categoryname} />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='brand' value={ brand} />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='discription' value={discription } />
-                    <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={ price} />
-                    <input type="file" className='bg-gray-300 h-7 border w-45' />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='name' value={name} onChange={(e) => { setname(e.target.value) }} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='categoryname' value={categoryname} onClick={(e) => { setcategoryname(e.target.value) }} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='brand' value={brand} onClick={(e) => { setbrand(e.target.value) }} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='discription' value={discription} onClick={(e) => { setdiscription(e.target.value) }} />
+                    <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={price} onClick={(e) => { setprice(e.target.value) }} />
+                    <input type="file" className='bg-gray-300 h-7 border w-45' onClick={(e) => { setnewimage(e.target.value) }} />
                     <div className='w-40'>
                         <img src={`http://localhost:4000/${oldimage}`} alt="" />
                     </div>
                     <div className='flex justify-center items-center gap-4  '>
-                        <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false) }}>Cancel</button>
-                        <button className='p-2 bg-green-700 rounded text-center' >Save</button>
+                        <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false); seteditid(null) }}>Cancel</button>
+                        <button className='p-2 bg-green-700 rounded text-center' onClick={saveproduct()} >Save</button>
                     </div>
                 </div>}
             </div>

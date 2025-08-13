@@ -8,7 +8,7 @@ function CategoryTable() {
     const data = async () => {
         const response = await Instance.get("/category/",)
         console.log(response);
-        
+
         setcategory(response.data)
     }
     useEffect(() => {
@@ -18,6 +18,14 @@ function CategoryTable() {
         console.log(id);
         const response = await Instance.patch(`/admin/useredit/${id}`)
         data();
+    }
+    const deleteCategory = async () => {
+        try {
+            
+        }
+        catch (err) {
+
+        }
     }
     return (
         <>
@@ -37,7 +45,10 @@ function CategoryTable() {
                                 <td className='w-2/4 p-4 font-semibold  text-xl'>{index + 1}</td>
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.name}</td>
                                 <td className="w-2/4 p-4 font-semibold text-xl">{i.discription}</td>
-                                <td className='w-1/4 '><button className='w-20 h-10 rounded text-black font-bold  bg-green-600' onClick={() => { editCategory(i._id) }}>Action</button></td>
+                                <td className='w-1/4 '>
+                                    <button className='w-20 h-10 rounded text-black font-bold  bg-green-600' onClick={() => { editCategory(i._id) }}>Edit</button>
+                                    <button className='w-20 h-10 rounded text-black font-bold  bg-green-600' onClick={() => { deleteCategory(i._id) }}>deleteproduct</button>
+                                </td>
                             </tr>
                         )}
                     </tbody>

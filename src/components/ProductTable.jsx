@@ -15,6 +15,7 @@ function ProductTable() {
     const [oldimage, setoldimage] = useState("")
     const [newimage, setnewimage] = useState("")
 
+    
     const data = async () => {
         const response = await Instance.get("/product/",)
         setproduct(response.data)
@@ -47,17 +48,29 @@ function ProductTable() {
 
             if (editid) {
                 const response = await Instance.put(`/product/edit/${editid}`, formData, { headers: { "Content-Type": "multypart:formdata" } })
-                setproduct(response.data)
                 data();
+                setproduct(response.data)
             }
             else {
                 const response = await Instance.post(`/product/add`, formData, { headers: { "Content-Type": "multypart:formdata" } })
-                setproduct(response.data)
                 data();
+                setproduct(response.data)
             }
         }
         catch (err) {
             console.log(err);
+        }
+    }
+
+    const deleteproduct = async (id) => {
+        try {
+            const response = await Instance.delete(`/product/delete/${id}`)
+            data();
+            setproduct(response.data)
+        }
+        catch (err) {
+            console.log(err);
+
         }
     }
     return (
@@ -91,7 +104,7 @@ function ProductTable() {
                                     <td className="w-2/4 p-4 font-semibold text-xl"><img src={`http://localhost:4000/${i.image}`} alt="" /></td>
                                     <td className='w-full flex flex-col gap-2 items-center justify-center'>
                                         <button className='w-20 h-8 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i) }}>Edit</button>
-                                        <button className='w-20 h-8 rounded text-black font-bold  bg-red-600'>delete</button>
+                                        <button className='w-20 h-8 rounded text-black font-bold  bg-red-600' onClick={() => { deleteproduct(i._id) }}>delete</button>
                                     </td>
                                 </tr>
                             )}

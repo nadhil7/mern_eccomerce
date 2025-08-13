@@ -53,7 +53,6 @@ function ProductTable() {
             }
             else {
                 const response = await Instance.post(`/product/add`, formData, { headers: { "Content-Type": "multypart:formdata" } })
-                data();
                 setproduct(response.data)
             }
         }
@@ -73,10 +72,18 @@ function ProductTable() {
 
         }
     }
+    const clearingvalue =()=>{
+        setname("")
+        setcategoryname("")
+        setbrand("");
+        setdiscription("");
+        setoldimage(null)
+        setprice("")
+    }
     return (
         <>
             <div className='flex justify-end p-4'>
-                <button onClick={() => { setshow(true); saveproduct(); seteditid(null) }} className='p-4 bg-green-400 rounded-2xl font-bold'>Add +</button>
+                <button onClick={() => { setshow(true); seteditid(null) }} className='p-4 bg-green-400 rounded-2xl font-bold'>Add +</button>
             </div>
             <div className='w-full h-full items-center flex flex-col justify-center'>
                 <div className="shadow-lg rounded-lg overflow-hidden mx-4 md:mx-10 py-6 ">
@@ -123,7 +130,7 @@ function ProductTable() {
                         <img src={`http://localhost:4000/${oldimage}`} alt="" />
                     </div>
                     <div className='flex justify-center items-center gap-4  '>
-                        <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false); seteditid(null) }}>Cancel</button>
+                        <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false); seteditid(null) ;clearingvalue() }}>Cancel</button>
                         <button className='p-2 bg-green-700 rounded text-center' onClick={() => { saveproduct() }} >Save</button>
                     </div>
                 </div>}

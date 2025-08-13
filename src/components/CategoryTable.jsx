@@ -39,14 +39,12 @@ function CategoryTable() {
             if (editid) {
                 console.log("hello");
 
-                const response = await Instance.put(`/category/edit/${id}`, formData, { headers: { "Content-Type": "multipart:formdata" } })
-                data();
+                const response = await Instance.put(`/category/${id}`, formData, { headers: { "Content-Type": "multipart:formdata" } })
                 setcategory(response.data);
             }
             else {
                 console.log("hi");
                 const response = await Instance.post(`/category/`, formData)
-                data();
                 setcategory(response.data);
             }
 
@@ -59,8 +57,7 @@ function CategoryTable() {
     const deleteCategory = async (id) => {
         console.log(id);
         try {
-            const response = await Instance.delete(`/category/delete/${id}`)
-            data();
+            const response = await Instance.delete(`/category/${id}`)
             console.log(response.data);
 
         }

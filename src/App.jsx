@@ -8,7 +8,7 @@ import UserLogin from './pages/Userlogin'
 import ProductManagement from './pages/ProductManagement'
 import CategoryManagement from './pages/CategoryManagement'
 import UserManagement from './pages/UserManagement'
-
+import OrderManagement from './pages/OrderManagement'
 function App() {
   return (
     <Routes>
@@ -20,6 +20,7 @@ function App() {
       <Route path='/admin/User' element={<UserManagement />} />
       <Route path='/admin/product' element={<ProductManagement/>}/>
       <Route path='/admin/category' element={<CategoryManagement/>}/>
+      <Route path='/admin/order' element={<OrderManagement/>}/>
     </Routes>
   )
 }

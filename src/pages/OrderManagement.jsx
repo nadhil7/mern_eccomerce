@@ -4,22 +4,22 @@ import Instance from '../Axios';
 
 function OrderManagement() {
     //states
-    const [order, setorder] = useState("");
+    const [order, setorder] = useState([]);
 
     const orders = async () => {
         try {
             const response = await Instance.get("/admin/orders")
-            setorder(response.data)
             console.log(response.data);
-            
+
+            setorder(response.data)
         }
         catch (err) {
             console.log(err);
         }
     }
-    useEffect(()=>{
+    useEffect(() => {
         orders();
-    },[])
+    }, [])
     return (
         <>
             <Sidebar />
@@ -61,6 +61,20 @@ function OrderManagement() {
                             </tr>
                         </thead>
                         <tbody>
+                            {order.map((i, index) => (
+                                <tr key={i._id}>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{ }</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                </tr>
+                            ))}
                         </tbody>
                     </table>
                 </div>

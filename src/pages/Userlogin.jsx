@@ -3,28 +3,31 @@ import logimg from '../assets/verify.png'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import signup from '../assets/add-user.png'
+import Instance from '../Axios'
 
 
 function UserLogin() {
 
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
-    const [message,setmessage]=useState("")
+    const [message, setmessage] = useState("")
     const navigate = useNavigate();
 
     const logincheck = async () => {
         try {
-            const response = await axios.post("http://localhost:4000/login", { email: email, password: password })
+            console.log({ email, password });
+            const response = await Instance.get("/login", { params: { email, password } })
             if (response.data.success) {
-                navigate("/home");
+                navigate("/");
+                console.log(response.data);
             }
-            else{
-                setmessage(response.data.message    )
+            else {
+                setmessage(response.data.message)
             }
         }
         catch (err) {
             console.log(err);
-            setmessage({message:"error ocuured"})
+            setmessage({ message: "error ocuured" })
         }
     }
     return (
@@ -54,10 +57,10 @@ function UserLogin() {
                 <div>
                 </div>
                 <Link to={"/user/signup"} className='font-bold text-xl pt-2'>
-                <div className='flex items-center justify-center gap-2'>
-                  <img src={signup} className='w-6' alt="" />
-                  <p>signup</p>
-                </div>
+                    <div className='flex items-center justify-center gap-2'>
+                        <img src={signup} className='w-6' alt="" />
+                        <p>signup</p>
+                    </div>
                 </Link>
             </section>
         </>

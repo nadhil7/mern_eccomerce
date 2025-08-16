@@ -63,15 +63,19 @@ function OrderManagement() {
                             {order.map((i, index) => (
                                 <tr key={i._id}>
                                     <th className='w-2/4 p-4 font-semibold text-black text-xl'>{index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.userId.name}</th>
+                                    {i.items.map((p) => (
+                                        <React.Fragment key={p._id ?? p.Index}>
+                                            <th className='w-2/4 p-4 font-semibold text-black text-xl'>{p.productId.name}</th>
+                                            <th className='w-2/4 p-4 font-semibold text-black text-xl'>{p.price}</th>
+                                            <th className='w-2/4 p-4 font-semibold text-black text-xl'>{p.quantity}</th>
+                                            <th className='w-2/4 p-4 font-semibold text-black text-xl'>{p.subtotal}</th>
+                                        </React.Fragment>
+                                    ))}
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.total}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.shippingStatus}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.paymentStatus}</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'> {new Date(i.createdAt).toLocaleString()}</th>
                                 </tr>
                             ))}
                         </tbody>

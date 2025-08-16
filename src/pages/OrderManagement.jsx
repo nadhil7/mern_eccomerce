@@ -10,7 +10,6 @@ function OrderManagement() {
         try {
             const response = await Instance.get("/admin/orders")
             console.log(response.data);
-
             setorder(response.data)
         }
         catch (err) {
@@ -64,7 +63,7 @@ function OrderManagement() {
                             {order.map((i, index) => (
                                 <tr key={i._id}>
                                     <th className='w-2/4 p-4 font-semibold text-black text-xl'>{index + 1}</th>
-                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{ }</th>
+                                    <th className='w-2/4 p-4 font-semibold text-black text-xl'>{}</th>
                                     <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
                                     <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>
                                     <th className='w-2/4 p-4 font-semibold text-black text-xl'>{i.index + 1}</th>

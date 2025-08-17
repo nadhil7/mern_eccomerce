@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 import ImageSlider from '../components/Slider.jsx'
 import BestDeal from "../components/bestdeals.jsx";
 import Instance from "../Axios.jsx";
+import ProductListing from "../components/ProductListing.jsx";
 
 function Home() {
 
@@ -17,7 +18,6 @@ function Home() {
     const listproduct = async () => {
         try {
             const response = await Instance.get("/product/");
-            console.log(response.data);
             setproduct(response.data)
         }
         catch (err) {
@@ -63,6 +63,7 @@ function Home() {
                         <img src={staticimage} alt="" />
                     </div>
                 </section> */}
+                <ProductListing/>
             </div >
         </>
     )

@@ -5,13 +5,18 @@ function ProductListing() {
     const [product, setproduct] = useState([])
 
     const data = async () => {
-        const response =await Instance.get("/product/")
-        console.log(response.data);
-        
-        useEffect(()=>{
-            data();
-        })
+        try {
+            const response = await Instance.get("/product/")
+            setproduct(response.data)
+        }
+        catch (err) {
+            console.log(err);
+        }
     }
+    useEffect(() => {
+        console.log("hello");
+        data();
+    }, [])
     return (
         <>
             <div className="bg-white">

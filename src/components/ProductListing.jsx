@@ -1,6 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import Instance from '../Axios'
 
 function ProductListing() {
+    const [product, setproduct] = useState([])
+
+    const data = async () => {
+        const response =await Instance.get("/product/")
+        console.log(response.data);
+        
+        useEffect(()=>{
+            data();
+        })
+    }
     return (
         <>
             <div class="bg-white">

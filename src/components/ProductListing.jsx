@@ -14,7 +14,6 @@ function ProductListing() {
         }
     }
     useEffect(() => {
-        console.log("hello");
         data();
     }, [])
     return (
@@ -39,51 +38,7 @@ function ProductListing() {
                                 <p className="text-sm font-medium text-gray-900">$35</p>
                             </div>
                         </div>
-                        <div className="group relative">
-                            <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-02.jpg" alt="Front of men&#039;s Basic Tee in white." className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
-                            <div className="mt-4 flex justify-between">
-                                <div>
-                                    <h3 className="text-sm text-gray-700">
-                                        <a href="#">
-                                            <span aria-hidden="true" className="absolute inset-0"></span>
-                                            Basic Tee
-                                        </a>
-                                    </h3>
-                                    <p className="mt-1 text-sm text-gray-500">Aspen White</p>
-                                </div>
-                                <p className="text-sm font-medium text-gray-900">$35</p>
-                            </div>
-                        </div>
-                        <div className="group relative">
-                            <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-03.jpg" alt="Front of men&#039;s Basic Tee in dark gray." className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
-                            <div className="mt-4 flex justify-between">
-                                <div>
-                                    <h3 className="text-sm text-gray-700">
-                                        <a href="#">
-                                            <span aria-hidden="true" className="absolute inset-0"></span>
-                                            Basic Tee
-                                        </a>
-                                    </h3>
-                                    <p className="mt-1 text-sm text-gray-500">Charcoal</p>
-                                </div>
-                                <p className="text-sm font-medium text-gray-900">$35</p>
-                            </div>
-                        </div>
-                        <div className="group relative">
-                            <img src="https://tailwindcss.com/plus-assets/img/ecommerce-images/product-page-01-related-product-04.jpg" alt="Front of men&#039;s Artwork Tee in peach with white and brown dots forming an isometric cube." className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
-                            <div className="mt-4 flex justify-between">
-                                <div>
-                                    <h3 className="text-sm text-gray-700">
-                                        <a href="#">
-                                            <span aria-hidden="true" className="absolute inset-0"></span>
-                                            Artwork Tee
-                                        </a>
-                                    </h3>
-                                    <p className="mt-1 text-sm text-gray-500">Iso Dots</p>
-                                </div>
-                                <p className="text-sm font-medium text-gray-900">$35</p>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

@@ -19,7 +19,6 @@ function UserLogin() {
             const response = await Instance.get("/login", { params: { email, password } })
             if (response.data.success) {
                 navigate("/");
-                console.log(response.data);
             }
             else {
                 setmessage(response.data.message)

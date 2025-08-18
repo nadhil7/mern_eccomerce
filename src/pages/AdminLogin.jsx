@@ -8,22 +8,22 @@ function AdminLogin() {
 
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
-    const [message,setmessage]=useState("")
+    const [message, setmessage] = useState("")
     const navigate = useNavigate();
 
     const logincheck = async () => {
         try {
-            const response = await axios.post("http://localhost:4000/admin/login", { email: email, password: password },{withCredentials:true})
+            const response = await axios.post("http://localhost:4000/admin/login", { email: email, password: password }, { withCredentials: true })
             if (response.data.success) {
                 navigate("/admin/dashboard");
             }
-            else{
+            else {
                 setmessage(response.data.message)
             }
         }
         catch (err) {
             console.log(err);
-            setmessage({message:"error ocuured"})
+            setmessage({ message: "error ocuured" })
         }
     }
     return (

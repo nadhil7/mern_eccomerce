@@ -9,6 +9,7 @@ import ImageSlider from '../components/Slider.jsx'
 import BestDeal from "../components/bestdeals.jsx";
 import Instance from "../Axios.jsx";
 import ProductListing from "../components/ProductListing.jsx";
+import Footer from "../components/Footer.jsx";
 
 function Home() {
 
@@ -48,7 +49,7 @@ function Home() {
                     <section className="bg-white  ">
                         <Slider {...settings}>
                             {product.map((i) =>
-                                <ImageSlider key={i._id} image={`http://localhost:4000/${i.image}`} />
+                                    <ImageSlider key={i._id} image={`http://localhost:4000/${i.image}`} />
                             )}
                         </Slider>
                     </section>
@@ -66,6 +67,7 @@ function Home() {
                         </div>
                     </section> */}
                 <ProductListing />
+                <Footer/>
             </div >
         </>
     )

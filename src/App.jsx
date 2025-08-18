@@ -9,18 +9,19 @@ import ProductManagement from './pages/ProductManagement'
 import CategoryManagement from './pages/CategoryManagement'
 import UserManagement from './pages/UserManagement'
 import OrderManagement from './pages/OrderManagement'
+import Protection from './components/Protection'
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/admin/login' element={<AdminLogin />} />
-      <Route path='/admin/dashboard' element={<Adminpage />} />
+      <Route path='/admin/dashboard' element={<Protection><Adminpage /></Protection>} />
       <Route path='/login' element={<UserLogin />} />
       <Route path='/user/signup' element={<UserSignup />} />
-      <Route path='/admin/User' element={<UserManagement />} />
-      <Route path='/admin/product' element={<ProductManagement/>}/>
-      <Route path='/admin/category' element={<CategoryManagement/>}/>
-      <Route path='/admin/order' element={<OrderManagement/>}/>
+      <Route path='/admin/User' element={<Protection><UserManagement /></Protection>} />
+      <Route path='/admin/product' element={<Protection><ProductManagement /></Protection>} />
+      <Route path='/admin/category' element={<Protection><CategoryManagement /></Protection>} />
+      <Route path='/admin/order' element={<Protection><OrderManagement /></Protection>} />
     </Routes>
   )
 }

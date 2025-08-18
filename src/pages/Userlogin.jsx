@@ -15,12 +15,12 @@ function UserLogin() {
 
     const logincheck = async () => {
         try {
-            console.log({ email, password });
             const response = await Instance.get("/login", { params: { email, password } })
             if (response.data.success) {
                 navigate("/");
+                localStorage.setItem("UserId",response.data.UserId)
             }
-            else {
+            else {  
                 setmessage(response.data.message)
             }
         }

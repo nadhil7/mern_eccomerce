@@ -7,6 +7,7 @@ function Adminpage() {
                 <div className='flex gap-40'>
                     <Sidebar />
                 </div>
+                
             </section>
         </>
     )

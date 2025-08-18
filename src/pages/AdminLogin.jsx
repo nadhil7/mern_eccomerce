@@ -11,11 +11,16 @@ function AdminLogin() {
     const [message, setmessage] = useState("")
     const navigate = useNavigate();
 
+    console.log(localStorage.getItem("Admin"));
+    
     const logincheck = async () => {
         try {
             const response = await axios.post("http://localhost:4000/admin/login", { email: email, password: password }, { withCredentials: true })
             if (response.data.success) {
+                localStorage.setItem("Admin", response.data.Id)
                 navigate("/admin/dashboard");
+                console.log(localStorage.getItem("Admin"));
+                
             }
             else {
                 setmessage(response.data.message)

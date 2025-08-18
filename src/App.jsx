@@ -10,6 +10,7 @@ import CategoryManagement from './pages/CategoryManagement'
 import UserManagement from './pages/UserManagement'
 import OrderManagement from './pages/OrderManagement'
 import Protection from './components/Protection'
+import UserCart from './pages/UserCart'
 function App() {
   return (
     <Routes>
@@ -22,6 +23,7 @@ function App() {
       <Route path='/admin/product' element={<Protection><ProductManagement /></Protection>} />
       <Route path='/admin/category' element={<Protection><CategoryManagement /></Protection>} />
       <Route path='/admin/order' element={<Protection><OrderManagement /></Protection>} />
+      <Route path='/user/cart' element={<UserCart />} />
     </Routes>
   )
 }

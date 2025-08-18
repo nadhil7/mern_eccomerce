@@ -19,6 +19,7 @@ function Home() {
         try {
             const response = await Instance.get("/product/");
             setproduct(response.data)
+            console.log(response.data);
         }
         catch (err) {
             console.log(err);
@@ -47,23 +48,24 @@ function Home() {
                     <section className="bg-white  ">
                         <Slider {...settings}>
                             {product.map((i) =>
-                                <ImageSlider key={i._id} images={i.images} />)}
+                                <ImageSlider key={i._id} image={`http://localhost:4000/${i.image}`} />
+                            )}
                         </Slider>
                     </section>
                 </section>
                 {/* <section className="w-full flex gap-4 p-6">
-                    <section className="  bg-white w-10/12">
-                        <h2 className='font-bold p-6 text-2xl'>Best Deals On SmartPhones</h2>
-                        <div className="flex px-10 gap-20 ">
-                            {array1.map((i, index) =>
-                                <BestDeal key={index} image={i.image} name={i.name} price={i.price} />)}
+                        <section className="  bg-white w-10/12">
+                            <h2 className='font-bold p-6 text-2xl'>Best Deals On SmartPhones</h2>
+                            <div className="flex px-10 gap-20 ">
+                                {array1.map((i, index) =>
+                                    <BestDeal key={index} image={i.image} name={i.name} price={i.price} />)}
+                            </div>
+                        </section>
+                        <div className="w-2/12 ">
+                            <img src={staticimage} alt="" />
                         </div>
-                    </section>
-                    <div className="w-2/12 ">
-                        <img src={staticimage} alt="" />
-                    </div>
-                </section> */}
-                <ProductListing/>
+                    </section> */}
+                <ProductListing />
             </div >
         </>
     )

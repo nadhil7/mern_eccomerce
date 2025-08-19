@@ -42,7 +42,7 @@ function Sidebar() {
                         </Link>
                         <Link to={"/admin/category"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>
                             <div></div>
-                            <img srclogout={category} className='w-8' alt="" />
+                            <img src={category} className='w-8' alt="" />
                             <p>Category Management</p>
                         </Link>
                         <Link to={"/admin/order"} className='flex bg-gray-400 h-15 items-center w-full justify-start gap-4 hover:border-2 hover:rounded-2xl px-4'>

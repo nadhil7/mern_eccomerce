@@ -21,33 +21,63 @@ function UserCart() {
     }, [])
     return (
         <>
-            <div className="bg-gray-100 p-6">
-                <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-6">
-                    <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
+            <div className="bg-gray-100 text-gray-900">
+                <main className="mx-auto max-w-3xl p-6">
+                    <h1 className="mb-4 text-2xl font-bold">Shopping Cart</h1>
+
                     <div className="space-y-4">
-                        <div className="flex items-center justify-between border-b pb-4">
+                        <div className="flex items-center justify-between bg-white p-4 rounded shadow">
                             <div className="flex items-center space-x-4">
-                                <img src={null} alt="Product Image" className="w-20 h-20 object-cover rounded" />
+                                <img src="https://via.placeholder.com/64" alt="Product 1" className="w-16 h-16 object-cover rounded" />
                                 <div>
-                                    <h2 className="text-lg font-semibold">Product Name</h2>
-                                    <p className="text-gray-500">₹1,200</p>
+                                    <h2 className="font-semibold">Product 1</h2>
+                                    <p className="text-sm text-gray-500">Description here</p>
                                 </div>
                             </div>
-                            <div className="flex items-center space-x-2">
-                                <button className="px-2 py-1 bg-gray-200 rounded">-</button>
-                                <span>1</span>
-                                <button className="px-2 py-1 bg-gray-200 rounded">+</button>
+                            <div className="text-right">
+                                <span className="block font-bold">$29.99</span>
+                                <small className="text-gray-500">Qty: 1</small>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center justify-between bg-white p-4 rounded shadow">
+                            <div className="flex items-center space-x-4">
+                                <img src="https://via.placeholder.com/64" alt="Product 2" className="w-16 h-16 object-cover rounded" />
+                                <div>
+                                    <h2 className="font-semibold">Product 2</h2>
+                                    <p className="text-sm text-gray-500">Description here</p>
+                                </div>
+                            </div>
+                            <div className="text-right">
+                                <span className="block font-bold">$49.99</span>
+                                <small className="text-gray-500">Qty: 2</small>
                             </div>
                         </div>
                     </div>
-                    <div className="mt-6 border-t pt-4">
-                        <div className="flex justify-between text-lg font-semibold">
-                            <span>Total</span>
-                            <span>₹1,200</span>
+
+                    <div className="mt-6 space-y-2 bg-white p-4 rounded shadow">
+                        <div className="flex justify-between">
+                            <span>Subtotal</span>
+                            <span className="font-medium">$129.97</span>
                         </div>
-                        <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">Proceed to Checkout</button>
+                        <div className="flex justify-between">
+                            <span>Shipping</span>
+                            <span className="font-medium">$5.00</span>
+                        </div>
+                        <div className="flex justify-between">
+                            <span>Tax (10%)</span>
+                            <span className="font-medium">$13.50</span>
+                        </div>
+                        <hr className="my-2" />
+                        <div className="flex justify-between text-lg font-bold">
+                            <span>Total</span>
+                            <span>$148.47</span>
+                        </div>
+                        <button className="w-full bg-blue-600 text-white py-2 rounded mt-3 hover:bg-blue-700">
+                            Checkout
+                        </button>
                     </div>
-                </div>
+                </main>
             </div>
         </>
     )

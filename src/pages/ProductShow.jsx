@@ -1,12 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Instance from '../Axios'
+import { Link, useParams, useSearchParams } from 'react-router-dom'
 
 function ProductShow() {
+    const { id } = useParams();
+    const [product, setproduct] = useState([])
+    const [count, setcount] = useState(1)
+
     const data = async () => {
         try {
             const response = await Instance.get(`/product/find/${id}`)
-            console.log(response.data);
-
+            setproduct(response.data.productdata)
         }
         catch (err) {
             console.log(err);
@@ -15,29 +19,43 @@ function ProductShow() {
     useEffect(() => {
         data();
     }, [])
+
+    const productId = product._id
+    const addingtocart = async () => {
+        try {
+        const response = await Instance.post("")
+        }
+        catch (err) {
+
+        }
+    }
+
     return (
         <>
             <div>
                 <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
                     <div className="w-full max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
                         <img
-                            src="<!-- YOUR_IMAGE_URL -->"
+                            src={`http://localhost:4000/${product.image}`}
                             alt="Product Name"
-                            className="w-full h-auto object-cover"
+                            className="w-96 h-auto object-cover"
                         />
                         <div className="p-6">
-                            <h1 className="text-3xl font-bold mb-4">Product Name</h1>
+                            <h1 className="text-3xl font-bold mb-4">{product.name}</h1>
                             <p className="text-gray-700 mb-6">
-                                Product description goes here. Keep it concise and to the point.
+                                {product.discription}
                             </p>
+                            <div className='flex justify-end mb-5'>
+                                <button className='w-7 h-7 bg-gray-300 rounded shadow' onClick={() => setcount((c) => c + 1)}>+</button>
+                                <p className='w-10 h-10 ml-3'>{count}</p>
+                                <button className='w-7 h-7 bg-gray-300 rounded shadow' onClick={() => count > 1 ? setcount((c) => c - 1) : 1}>-</button>
+                            </div>
                             <div className="flex items-center justify-between">
-                                <span className="text-2xl font-semibold text-green-600">$99.99</span>
-                                <a
-                                    href="#"
-                                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition"
-                                >
-                                    Buy Now
-                                </a>
+                                <span className="text-2xl font-semibold text-green-600">${product.price}</span>
+                                <div onClick={() => addingtocart()}
+                                    className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-6 rounded transition">
+                                    AddToCart
+                                </div>
                             </div>
                         </div>
                     </div>

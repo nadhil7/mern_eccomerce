@@ -23,16 +23,16 @@ function ProductShow() {
     const productId = product._id
     const addingtocart = async () => {
         try {
-            const response = await Instance.post(`/cart/${productId}`, { count })
+            const response = await Instance.post(`/cart/${productId}`, { quantity1: count })
+            console.log(count);
             console.log(response.data);
-            if (response.data) {
-            console.log("hi");
-            
-            }
-            else {
-             console.log("hello");
-             
-            }
+            // if (response.data) {
+            //     console.log("hi");
+            // }
+            // else {
+            //     console.log("hello");
+
+            // }
 
         }
         catch (err) {

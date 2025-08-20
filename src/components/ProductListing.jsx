@@ -30,19 +30,19 @@ function ProductListing() {
                                 <div key={i._id}
                                     className="mt-6  gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                                     <div key={i._id} className="group relative">
-                                        <img src={`http://localhost:4000/${i.image}`} alt={i.name}
+                                        <img key={i._id} src={`http://localhost:4000/${i.image}`} alt={i.name}
                                             className="aspect-square w-60 rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
-                                        <div className="mt-4 flex justify-between">
-                                            <div>
-                                                <h3 className="text-sm text-gray-700">
+                                        <div key={i._id} className="mt-4 flex justify-between">
+                                            <div key={i._id}>
+                                                <h3 key={i._id} className="text-sm text-gray-700">
                                                     <a href="#">
                                                         <span aria-hidden="true" className="absolute inset-0"></span>
                                                         {i.name}
                                                     </a>
                                                 </h3>
-                                                <p className="mt-1 text-sm text-gray-500">{i.categoryname}</p>
+                                                <p key={i._id} className="mt-1 text-sm text-gray-500">{i.categoryname}</p>
                                             </div>
-                                            <p className="text-sm font-medium text-gray-900">{i.price}</p>
+                                            <p key={i._id} className="text-sm font-medium text-gray-900">{i.price}</p>
                                         </div>
                                     </div>
                                 </div>

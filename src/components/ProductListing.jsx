@@ -25,24 +25,24 @@ function ProductListing() {
                     <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2>
                     <div className='flex gap-10'>
 
-                        {product.map((i) => (
+                        {product.map((i, index) => (
                             <Link to={`/product/show/${i._id}`}>
-                                <div key={i._id}
+                                <div key={index}
                                     className="mt-6  gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                                    <div key={i._id} className="group relative">
-                                        <img key={i._id} src={`http://localhost:4000/${i.image}`} alt={i.name}
+                                    <div className="group relative">
+                                        <img src={`http://localhost:4000/${i.image}`} alt={i.name}
                                             className="aspect-square w-60 rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
-                                        <div key={i._id} className="mt-4 flex justify-between">
-                                            <div key={i._id}>
-                                                <h3 key={i._id} className="text-sm text-gray-700">
-                                                    <a href="#">
+                                        <div className="mt-4 flex justify-between">
+                                            <div >
+                                                <h3 className="text-sm text-gray-700">
+                                                    <a>
                                                         <span aria-hidden="true" className="absolute inset-0"></span>
                                                         {i.name}
                                                     </a>
                                                 </h3>
-                                                <p key={i._id} className="mt-1 text-sm text-gray-500">{i.categoryname}</p>
+                                                <p className="mt-1 text-sm text-gray-500">{i.categoryname}</p>
                                             </div>
-                                            <p key={i._id} className="text-sm font-medium text-gray-900">{i.price}</p>
+                                            <p className="text-sm font-medium text-gray-900">{i.price}</p>
                                         </div>
                                     </div>
                                 </div>

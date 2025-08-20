@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import Instance from '../Axios'
-import { Link } from 'react-router-dom'
+import { Link,useNavigate } from 'react-router-dom'
 
 
 function ProductListing() {
     const [product, setproduct] = useState([])
+    const navigate = useNavigate()
 
     const data = async () => {
         try {
             const response = await Instance.get("/product/")
             setproduct(response.data)
+            if (response.data.success) {
+                navigate("")
+            }
         }
         catch (err) {
             console.log(err);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Instance from '../Axios'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 function ProductListing() {
@@ -30,19 +30,18 @@ function ProductListing() {
                     <div className='flex gap-10'>
 
                         {product.map((i, index) => (
-                            <Link to={`/product/show/${i._id}`}>
-                                <div key={index}
-                                    className="mt-6  gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                            <Link key={index} to={`/product/show/${i._id}`}>
+                                <div className="mt-6  gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                                     <div className="group relative">
-                                        <img src={`http://localhost:4000/${i.image}`} alt={i.name}
+                                          <img src={`http://localhost:4000/${i.image}`} alt={i.name}
                                             className="aspect-square w-60 rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80" />
                                         <div className="mt-4 flex justify-between">
                                             <div >
                                                 <h3 className="text-sm text-gray-700">
-                                                    <a>
+                                                    <p>
                                                         <span aria-hidden="true" className="absolute inset-0"></span>
                                                         {i.name}
-                                                    </a>
+                                                    </p>
                                                 </h3>
                                                 <p className="mt-1 text-sm text-gray-500">{i.categoryname}</p>
                                             </div>

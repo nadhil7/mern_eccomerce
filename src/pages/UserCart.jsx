@@ -22,14 +22,21 @@ function UserCart() {
         try {
             const response = await Instance.post("/order/create")
             console.log(response.data);
-            
+
         }
         catch (err) {
             console.log(err);
+
+        }
+    }
+    const deleteitem = async (id) => {
+        try {
+
+        }
+        catch (err) {
             
         }
     }
-
     useEffect(() => {
         response();
     }, [])
@@ -38,30 +45,33 @@ function UserCart() {
 
     return (
         <>
-            <div className="bg-gray-100 text-gray-900">
-                <main className="mx-auto max-w-3xl p-6">
-                    <h1 className="mb-4 text-2xl font-bold">Shopping Cart</h1>
-
-                    {product.map((i, index) => (
-                        <div key={index} className="space-y-4">
-                            <div className="flex items-center justify-between bg-white p-4 rounded shadow">
-                                <div className="flex items-center space-x-4">
-                                    <img src={`http://localhost:4000/${i.image}`} alt="Product 1" className="w-16 h-16 object-cover rounded" />
-                                    <div>
-                                        <h2 className="font-semibold">{i.name}</h2>
-                                        <p className="text-sm text-gray-500">{i.discription}</p>
+            {product ?
+                <div className="bg-gray-100 text-gray-900">
+                    <main className="mx-auto max-w-3xl p-6">
+                        <h1 className="mb-4 text-2xl font-bold">Shopping Cart</h1>
+                        {
+                            product.map((i, index) => (
+                                <div key={index} className="space-y-4">
+                                    <div className="flex items-center justify-between bg-white p-4 rounded shadow">
+                                        <div className="flex items-center space-x-4">
+                                            <img src={`http://localhost:4000/${i.image}`} alt="Product 1" className="w-16 h-16 object-cover rounded" />
+                                            <div>
+                                                <h2 className="font-semibold">{i.name}</h2>
+                                                <p className="text-sm text-gray-500">{i.discription}</p>
+                                            </div>
+                                        </div>
+                                        <div className="text-right flex flex-col">
+                                            <span className="block font-bold">{i.price}</span>
+                                            <small className="text-gray-500 mb-4">Qty: {i.quantity}</small>
+                                            <button onClick={() => deleteitem(i.productId)} className='w-15 h-10 bg-red-500 rounded shadow'>Delete</button>
+                                        </div>
                                     </div>
                                 </div>
-                                <div className="text-right">
-                                    <span className="block font-bold">{i.price}</span>
-                                    <small className="text-gray-500">Qty: {i.quantity}</small>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+                            ))
+                        }
 
-                    <div className="mt-6 space-y-2 bg-white p-4 rounded shadow">
-                        {/* <div className="flex justify-between">
+                        < div className="mt-6 space-y-2 bg-white p-4 rounded shadow">
+                            {/* <div className="flex justify-between">
                             <span>Subtotal</span>
                             <span className="font-medium">$129.97</span>
                         </div>
@@ -73,17 +83,52 @@ function UserCart() {
                             <span>Tax (10%)</span>
                             <span className="font-medium">$13.50</span>
                         </div> */}
-                        <hr className="my-2" />
-                        <div className="flex justify-between text-lg font-bold">
-                            <span>Total</span>
-                            <span>{total}</span>
+                            <hr className="my-2" />
+                            <div className="flex justify-between text-lg font-bold">
+                                <span>Total</span>
+                                <span>{total}</span>
+                            </div>
+                            <button onClick={() => createorder()} className="w-full bg-blue-600 text-white py-2 rounded mt-3 hover:bg-blue-700">
+                                Checkout
+                            </button>
                         </div>
-                        <button onClick={() => createorder()} className="w-full bg-blue-600 text-white py-2 rounded mt-3 hover:bg-blue-700">
-                            Checkout
-                        </button>
-                    </div>
-                </main>
-            </div>
+                    </main >
+                </div >
+                : <main className="min-h-screen w-full bg-gray-50 flex items-center justify-center p-6">
+                    <section className="w-full max-w-md">
+                        <div className="bg-white shadow-sm rounded-2xl p-8 text-center border border-gray-100">
+                            <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-dashed">
+                                <ShoppingCart className="h-8 w-8" aria-hidden="true" />
+                            </div>
+
+
+                            <h1 className="text-xl font-semibold">No user cart found</h1>
+                            <p className="mt-2 text-sm text-gray-600">
+                                Looks like you don’t have an active cart yet. Start shopping to add items.
+                            </p>
+
+
+                            <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                <Button className="w-full">Start Shopping</Button>
+                                <Button variant="outline" className="w-full">
+                                    <RotateCcw className="mr-2 h-4 w-4" /> Refresh
+                                </Button>
+                            </div>
+
+
+                            <div className="mt-5 text-xs text-gray-500">
+                                <a href="#" className="underline hover:no-underline">
+                                    Go to Home
+                                </a>
+                            </div>
+                        </div>
+
+
+                        <p className="mt-4 text-center text-[11px] text-gray-400">
+                            Tip: connect your account to sync carts across devices.
+                        </p>
+                    </section>
+                </main>}
         </>
     )
 }

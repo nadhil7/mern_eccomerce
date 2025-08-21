@@ -27,17 +27,17 @@ function ProductShow() {
             const UserId = localStorage.getItem("UserId");
             if (!UserId) {
                 navigate("/login");
+                alert("first login  to make cart")
             }
             else {
 
                 const response = await Instance.post(`/cart/${productId}`, { quantity1: count })
                 console.log(UserId);
                 if (response.data.success) {
-
-                    navigate("/user/cart")
+                    alert("product added to cart ");
                 }
                 else {
-
+                    alert("product adding blocked");
                 }
             }
 

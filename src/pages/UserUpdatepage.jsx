@@ -9,7 +9,7 @@ function UserUpdatepage() {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
     const [oldpassword, setoldpassword] = useState("")
-    
+
     const navigate = useNavigate()
 
     const userid = localStorage.getItem("UserId");
@@ -36,17 +36,17 @@ function UserUpdatepage() {
                 formData.append("password", password)
                 formData.append("oldpassword", oldpassword)
             }
-            const response = await Instance.put(`/user/${userid}`,formData,)
-            if(response.data.success)
-                {
-                    navigate("/");
-                    alert("userdetails Updated");
-                }
-                else{
-                    alert("something went wrong")
-                }            
+            const response = await Instance.put(`/user/${userid}`, formData,)
+            if (response.data.success) {
+                navigate("/");
+                alert("userdetails Updated");
+            }
+            else {
+                alert(response.data.message)
+            }
         }
         catch (err) {
+            console.log(err);
 
         }
     }

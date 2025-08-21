@@ -21,7 +21,6 @@ function UserSignup() {
             console.log("hi");
             const response = await Instance.post("/user/signup", Data);
             console.log(response.data);
-            
             if (response.data.success) {
                 navigate("/");
                 console.log(response.data);

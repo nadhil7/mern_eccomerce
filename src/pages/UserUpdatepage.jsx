@@ -42,6 +42,7 @@ function UserUpdatepage() {
                 alert("userdetails Updated");
             }
             else {
+                console.log(response);
                 alert(response.data.message)
             }
         }

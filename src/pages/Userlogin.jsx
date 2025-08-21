@@ -16,11 +16,13 @@ function UserLogin() {
     const logincheck = async () => {
         try {
             const response = await Instance.get("/login", { params: { email, password } })
+            alert(response.data.message)
+            console.log(response.data);
             if (response.data.success) {
                 navigate("/");
-                localStorage.setItem("UserId",response.data.UserId)
+                localStorage.setItem("UserId", response.data.UserId)
             }
-            else {  
+            else {
                 setmessage(response.data.message)
             }
         }
@@ -50,7 +52,7 @@ function UserLogin() {
                             value={password}
                             onChange={(e) => { setpassword(e.target.value) }}
                             className='text-black w-50 h-8 border rounded bg-white' placeholder=' Enter Your Password' />
-                        <button type='submit' className='border bg-gray-300 p-2 rounded-xl' onClick={logincheck}>Login</button>
+                        <button type='submit' className='border bg-gray-300 p-2 rounded-xl' onClick={() => { logincheck() }}>Login</button>
                     </div>
                 </div>
                 <div>

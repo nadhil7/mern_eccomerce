@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Instance from '../Axios'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 function ProductShow() {
     const { id } = useParams();
+    const navigate = useNavigate()
     const [product, setproduct] = useState([])
     const [count, setcount] = useState(1)
 
@@ -23,15 +24,21 @@ function ProductShow() {
     const productId = product._id
     const addingtocart = async () => {
         try {
-            const response = await Instance.post(`/cart/${productId}`, { count })
-            console.log(response.data);
-            if (response.data) {
-            console.log("hi");
-            
+            const UserId = localStorage.getItem("UserId");
+            if (!UserId) {
+                navigate("/login");
+                alert("first login  to make cart")
             }
             else {
-             console.log("hello");
-             
+
+                const response = await Instance.post(`/cart/${productId}`, { quantity1: count })
+                console.log(UserId);
+                if (response.data.success) {
+                    alert("product added to cart ");
+                }
+                else {
+                    alert("product adding blocked");
+                }
             }
 
         }

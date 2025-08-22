@@ -42,7 +42,7 @@ function UserCart() {
     }
     useEffect(() => {
         response();
-    }, [])
+    }, [response])
 
     return (
         <>
@@ -64,7 +64,7 @@ function UserCart() {
                                         <div className="text-right flex flex-col">
                                             <span className="block font-bold">{i.price}</span>
                                             <small className="text-gray-500 mb-4">Qty: {i.quantity}</small>
-                                            <button onClick={() => {deleteitem(i.productId);window.location.reload()}} className='w-15 h-10 bg-red-500 rounded shadow'>Delete</button>
+                                            <button onClick={() => { deleteitem(i.productId) }} className='w-15 h-10 bg-red-500 rounded shadow'>Delete</button>
                                         </div>
                                     </div>
                                 </div>

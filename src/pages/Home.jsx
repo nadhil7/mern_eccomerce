@@ -10,6 +10,7 @@ import BestDeal from "../components/bestdeals.jsx";
 import Instance from "../Axios.jsx";
 import ProductListing from "../components/ProductListing.jsx";
 import Footer from "../components/Footer.jsx";
+import { Link } from "react-router-dom";
 
 function Home() {
 
@@ -49,7 +50,7 @@ function Home() {
                     <section className="bg-white  ">
                         <Slider {...settings}>
                             {product.map((i) =>
-                                    <ImageSlider key={i._id} image={`http://localhost:4000/${i.image}`} />
+                                <Link to={"/product/show"}><ImageSlider key={i._id} image={{ src:"null" /*`http://localhost:4000/${i.image}`*/, alt: i.name }} /></Link>
                             )}
                         </Slider>
                     </section>
@@ -67,7 +68,7 @@ function Home() {
                         </div>
                     </section> */}
                 <ProductListing />
-                <Footer/>
+                <Footer />
             </div >
         </>
     )

@@ -13,6 +13,7 @@ import Protection from './components/Protection'
 import UserCart from './pages/UserCart'
 import ProductShow from './pages/ProductShow'
 import UserUpdatepage from './pages/UserUpdatepage'
+import UserOrders from './pages/UserOrders'
 function App() {
   return (
     <Routes>
@@ -28,6 +29,7 @@ function App() {
       <Route path='/user/cart' element={<UserCart />} />
       <Route path='/product/show/:id' element={<ProductShow />} />
       <Route path='/user/show' element={<UserUpdatepage />} />
+      <Route path='/user/order' element={<UserOrders />} />
     </Routes>
   )
 }

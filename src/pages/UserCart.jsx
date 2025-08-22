@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import Instance from '../Axios'
+import { useNavigate } from 'react-router-dom'
 
 function UserCart() {
     const [Logging, setlogging] = useState(localStorage.getItem("UserId"))
     const [product, addproduct] = useState([])
     const [total, settotal] = useState(null)
     const [cart, setcart] = useState([])
+    const navigate = useNavigate()
 
     const response = async () => {
         try {
@@ -22,7 +24,12 @@ function UserCart() {
         try {
             const response = await Instance.post("/order/create")
             console.log(response.data);
-
+            if (response.data.success) {
+                navigate("/user/order")
+            }
+            else {
+                alert("something went wrong");
+            }
         }
         catch (err) {
             console.log(err);
@@ -37,7 +44,6 @@ function UserCart() {
         }
         catch (err) {
             console.log(err);
-
         }
     }
     useEffect(() => {

@@ -35,7 +35,7 @@ export default function Header() {
             if (Logging) {
                 navigate("/user/show");
             }
-            else{
+            else {
                 alert("no user found")
             }
         }
@@ -53,7 +53,7 @@ export default function Header() {
                     <h3>Logout</h3><img src={arrowicon} alt="" className='group-hover:rotate-180 g' /></Link> : <Link className='flex gap-2 hover:bg-blue-600 p-4 rounded-lg group' to={"/login"}><img src={dpicon} alt="" className='group-hover:invert' />
                     <h3>Login</h3><img src={arrowicon} alt="" className='group-hover:rotate-180' /></Link>}
                 <Link to={"/user/cart"} className='flex gap-2 p-4'><img src={carticon} alt="" /><h3>Cart</h3></Link>
-                <a href="#" className='flex gap-2 p-4'><img src={headericon} alt="" /><h3>Become a Seller</h3></a>
+                <Link to={"/user/order"} className='flex gap-2 p-4'><img src={headericon} alt="" /><h3>Become a Seller</h3></Link>
                 <button onClick={profileedit} className='flex flex-col gap-1'><img className='w-9 h-9' src={userprofile} alt="Edituser" /> <p>Edituser</p></button>
             </div>
         </header>

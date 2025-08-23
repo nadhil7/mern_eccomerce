@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import Instance from '../Axios'
 
 function UserOrders() {
     const [products, setproducts] = useState()
+    const [orderdata, setorderdata] = useState()
+    const OrderId = localStorage.getItem("OrderId")
 
 
     const Data = async () => {
         try {
-            
+            if (OrderId) {
+                const Order = await Instance.get(`/order/myorder/${OrderId}`)
+                setorderdata(Order.data)
+                setproducts(Order.data.items)
+            }
         }
         catch (err) {
-
+            console.log(err);
         }
     }
 
     useEffect(() => {
         Data();
     }, [])
+
+
+    console.log(products);
+    console.log(orderdata);
+
     return (
         <>
             <div className="bg-gray-50 text-gray-900 antialiased">

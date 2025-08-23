@@ -25,6 +25,9 @@ function UserCart() {
             const response = await Instance.post("/order/create")
             console.log(response.data);
             if (response.data.success) {
+                const OrderId = response.data.data._id
+                console.log(OrderId);
+                localStorage.setItem("OrderId", OrderId)
                 navigate("/user/order")
             }
             else {

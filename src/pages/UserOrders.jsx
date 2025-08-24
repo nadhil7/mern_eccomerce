@@ -42,7 +42,6 @@ function UserOrders() {
                             <h1 className="text-2xl font-semibold mb-2">Order Confirmed</h1>
                             <p className="text-gray-600 mb-4">Thank you! Your order <span className="font-medium">#123456</span> has been placed.</p>
 
-//
                             {products.map((i, index) => (
                                 <div key={index} className="border border-gray-200 rounded-lg divide-y divide-gray-200">
                                     <div className="flex items-center p-4">
@@ -56,7 +55,6 @@ function UserOrders() {
 
                                 </div>
                             ))}
-//
                             <div className="mt-4 text-sm space-y-2">
                                 <div className="flex justify-between">
                                     <span className="text-gray-600">Subtotal</span>

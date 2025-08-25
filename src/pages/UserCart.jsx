@@ -16,6 +16,8 @@ function UserCart() {
         try {
             const cart = await Instance.get(`/cart/`)
             const addproduct1 = (cart.data)
+            console.log(cart.data);
+            
             settotal(addproduct1.total)
             addproduct(addproduct1.items)
         }
@@ -54,7 +56,7 @@ function UserCart() {
     }
     useEffect(() => {
         response();
-    }, [response])
+    }, [])
 
     return (
         <>
@@ -142,7 +144,7 @@ function UserCart() {
                     </section>
                 </main>
             }
-            <FOOTER/>
+            <FOOTER />
         </>
     )
 }

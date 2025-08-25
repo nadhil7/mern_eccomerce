@@ -14,6 +14,7 @@ import UserCart from './pages/UserCart'
 import ProductShow from './pages/ProductShow'
 import UserUpdatepage from './pages/UserUpdatepage'
 import UserOrders from './pages/UserOrders'
+import Myorder from './pages/Myorder'
 function App() {
   return (
     <Routes>
@@ -30,6 +31,7 @@ function App() {
       <Route path='/product/show/:id' element={<ProductShow />} />
       <Route path='/user/show' element={<UserUpdatepage />} />
       <Route path='/user/order' element={<UserOrders />} />
+      <Route path='/order/myorder/:id' element={<Myorder />} />
     </Routes>
   )
 }

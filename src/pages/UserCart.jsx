@@ -31,7 +31,7 @@ function UserCart() {
                 const OrderId = response.data.data._id
                 console.log(OrderId);
                 localStorage.setItem("OrderId", OrderId)
-                navigate("/user/order")
+                navigate(`/order/Myorder/${OrderId}`)
             }
             else {
                 alert("something went wrong");
@@ -56,13 +56,11 @@ function UserCart() {
         response();
     }, [response])
 
-    console.log(product);
-
     return (
         <>
             <Navbar />
             {total ?
-                <div className="bg-gray-100 text-gray-900">
+                <div className="bg-gray-100 min-h-screen text-gray-900">
                     <main className="mx-auto max-w-3xl p-6">
                         <h1 className="mb-4 text-2xl font-bold">Shopping Cart</h1>
                         {

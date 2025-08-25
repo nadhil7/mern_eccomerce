@@ -44,7 +44,7 @@ function Home() {
     };
     return (
         <>
-            <div className='w-full  bg-gray-200 h-full' >
+            <div className='w-full  bg-gray-200 ' >
                 <Header />
                 <section className="w-full p-6">
                     <section className="bg-white  ">

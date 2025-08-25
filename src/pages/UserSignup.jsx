@@ -22,10 +22,13 @@ function UserSignup() {
             const response = await Instance.post("/user/signup", Data);
             console.log(response.data);
             if (response.data.success) {
-                navigate("/");
+                navigate("/login");
+                alert("singup  successfull login now!")
                 console.log(response.data);
             }
-            alert("something went wrong");
+            else {
+                alert("something went wrong");
+            }
         }
         catch (err) {
             console.log(err);

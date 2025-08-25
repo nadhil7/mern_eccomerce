@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <>
-            <footer className="bg-gray-800 text-white py-6">
+            <footer className="bg-gray-800 text-white py-6  bottom-0 w-full" >
                 <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
                     {/* Logo or Brand Name */}
                     <div className="mb-4 md:mb-0">

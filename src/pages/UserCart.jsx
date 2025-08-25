@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Instance from '../Axios'
 import { useNavigate } from 'react-router-dom'
+import Navbar from '../components/Header'
+import FOOTER from '../components/Footer'
+
 
 function UserCart() {
     const [Logging, setlogging] = useState(localStorage.getItem("UserId"))
@@ -53,9 +56,12 @@ function UserCart() {
         response();
     }, [response])
 
+    console.log(product);
+
     return (
         <>
-            {product ?
+            <Navbar />
+            {total ?
                 <div className="bg-gray-100 text-gray-900">
                     <main className="mx-auto max-w-3xl p-6">
                         <h1 className="mb-4 text-2xl font-bold">Shopping Cart</h1>
@@ -108,7 +114,6 @@ function UserCart() {
                     <section className="w-full max-w-md">
                         <div className="bg-white shadow-sm rounded-2xl p-8 text-center border border-gray-100">
                             <div className="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-full border border-dashed">
-                                <ShoppingCart className="h-8 w-8" aria-hidden="true" />
                             </div>
 
 
@@ -119,15 +124,14 @@ function UserCart() {
 
 
                             <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                                <Button className="w-full">Start Shopping</Button>
-                                <Button variant="outline" className="w-full">
-                                    <RotateCcw className="mr-2 h-4 w-4" /> Refresh
-                                </Button>
+                                <button className="w-full">Start Shopping</button>
+                                <button variant="outline" className="w-full">
+                                </button>
                             </div>
 
 
                             <div className="mt-5 text-xs text-gray-500">
-                                <a href="#" className="underline hover:no-underline">
+                                <a href="/" className="underline hover:no-underline">
                                     Go to Home
                                 </a>
                             </div>
@@ -138,7 +142,9 @@ function UserCart() {
                             Tip: connect your account to sync carts across devices.
                         </p>
                     </section>
-                </main>}
+                </main>
+            }
+            <FOOTER/>
         </>
     )
 }

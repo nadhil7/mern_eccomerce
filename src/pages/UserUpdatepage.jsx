@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Instance from '../Axios';
+import Navbar from '../components/Header'
+import FOOTER from '../components/Footer'
 import { useNavigate } from 'react-router-dom';
 
 function UserUpdatepage() {
@@ -59,7 +61,7 @@ function UserUpdatepage() {
 
 
     return (
-        <>
+        <><Navbar />
             <div className="bg-gray-100 flex items-center justify-center min-h-screen">
                 <div className="bg-white p-8 rounded-2xl shadow-md w-full max-w-md">
                     <h2 className="text-2xl font-semibold text-center mb-6">Update Profile</h2>
@@ -101,6 +103,7 @@ function UserUpdatepage() {
                     </div>
                 </div>
             </div>
+            <FOOTER />
         </>
     )
 }

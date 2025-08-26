@@ -39,6 +39,26 @@ function OrderManagement() {
 
     const [Shippingstatus, dispatch] = useReducer(setpayment);
 
+    const [state, setState] = useReducer(async (stateInside, action) => {
+        const validShippingStatus = ["shipped", "preparing for ship"];
+        const validPaymentStatus = ["paid", "pending"];
+
+        const payload = action.payload;
+
+
+        if (validShippingStatus.includes(payload.status)) {
+            const response = await Instance.patch(`/order/shipstatus/${payload.orderId}`, { shippingstatus: payload.status });
+            console.log(response.data);
+        } else if (validPaymentStatus.includes(payload.status)) {
+            const response = await Instance.patch(`/order/status/${payload.orderId}`, { paymentStatus: payload.status });
+            console.log(response.data);
+        } else console.log("invalid")
+
+        return stateInside
+    })
+
+
+
     // fetch orders
     const orders = async () => {
         try {

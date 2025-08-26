@@ -10,6 +10,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 export default function Header() {
     const [Logging, setloggin] = useState(localStorage.getItem("UserId"))
+    const [search, setsearch] = useState()
     const navigate = useNavigate()
 
     const userlogout = async () => {
@@ -44,10 +45,21 @@ export default function Header() {
 
         }
     }
+
+    const handleSearch = (e) => {
+        if (e.key === "Enter" && search.trim() !== "") {
+            navigate(`/search/${search}`);
+        }
+    };
     return (
         <header className='flex bg-white gap-5 h-20 w-full justify-center items-center'>
             <div><a href="/"><img src={flipkarthead} alt="refresh icon flipkart" /></a></div>
-            <div><input type="text" className='rounded-md bg-gray-100 w-xl h-12' placeholder='  Search for Products, Brands and More' onChange={(e) => setsearch(e.target.value)} /></div>
+            <div>
+                <input type="text" className='rounded-md bg-gray-100 w-xl h-12' placeholder='  Search for Products, Brands and More'
+                    onChange={(e) => setsearch(e.target.value)}
+                    value={search}
+                    onKeyDown={handleSearch} />
+            </div>
             <div className='flex gap-5 items-center'>
                 {Logging ? (
                     <Link onClick={() => { userlogout() }} className='flex gap-2 hover:bg-red-600 p-4 rounded-lg group' to={"/"}>

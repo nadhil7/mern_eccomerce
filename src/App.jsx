@@ -15,6 +15,7 @@ import ProductShow from './pages/ProductShow'
 import UserUpdatepage from './pages/UserUpdatepage'
 import UserOrders from './pages/UserOrders'
 import Myorder from './pages/Myorder'
+import SearchingPage from './pages/SearchingPage'
 function App() {
   return (
     <Routes>
@@ -32,6 +33,7 @@ function App() {
       <Route path='/user/show' element={<UserUpdatepage />} />
       <Route path='/user/order' element={<UserOrders />} />
       <Route path='/order/myorder/:id' element={<Myorder />} />
+      <Route path='/search/:query' element={<SearchingPage />} />
     </Routes>
   )
 }

@@ -12,6 +12,16 @@ import ProductListing from "../components/ProductListing.jsx";
 import Footer from "../components/Footer.jsx";
 import { Link } from "react-router-dom";
 
+
+//Slider images 
+import sli1 from '../assets/1.jpg'
+import sli2 from '../assets/2.jpg'
+import sli3 from '../assets/3.jpg'
+import sli4 from '../assets/4.jpg'
+
+const slideraaray = [{ image: sli1 }, { image: sli2 },
+{ image: sli3 }, { image: sli4 },]
+
 function Home() {
 
     const [category, setcategory] = useState([])
@@ -49,8 +59,8 @@ function Home() {
                 <section className="w-full p-6">
                     <section className="bg-white  ">
                         <Slider {...settings}>
-                            {product.map((i) =>
-                                <Link to={"/product/show"}><ImageSlider key={i._id} image={{ src:"null" /*`http://localhost:4000/${i.image}`*/, alt: i.name }} /></Link>
+                            {slideraaray.map((i, index) =>
+                                <Link to={"/"}><ImageSlider key={index} image={{ src: i.image, alt: "slider" }} /></Link>
                             )}
                         </Slider>
                     </section>

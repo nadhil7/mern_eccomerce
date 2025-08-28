@@ -49,7 +49,6 @@ function ProductTable() {
             if (editid) {
                 const response = await Instance.put(`/product/edit/${editid}`, formData, { headers: { "Content-Type": "multypart:formdata" } })
                 data();
-                setproduct(response.data)
             }
             else {
                 const response = await Instance.post(`/product/add`, formData, { headers: { "Content-Type": "multypart:formdata" } })

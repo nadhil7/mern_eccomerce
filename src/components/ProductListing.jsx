@@ -24,6 +24,11 @@ function ProductListing() {
     }, [])
     return (
         <>
+        <div>
+            <select name="sort" id="">
+                
+            </select>
+        </div>
         {
             product?(
             <div className="bg-white">

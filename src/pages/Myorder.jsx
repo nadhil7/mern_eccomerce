@@ -50,9 +50,9 @@ function Myorder() {
 
               <div className="mb-6">
                 <h3 className="text-lg font-semibold mb-2">Customer Information</h3>
-                <p>John Doe</p>
-                <p>johndoe@email.com</p>
-                <p className="text-gray-600">123 Main St, Springfield, USA</p>
+                <p>customer 1</p>
+                <p>customer1@gmail.com</p>
+                <p className="text-gray-600">Address 1</p>
               </div>
 
               {order.items.map((i, index) => (

@@ -39,7 +39,7 @@ const SearchingPage = () => {
                                 className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-all"
                             >
                                 <img
-                                    src={`http://localhost:4000/${product.image}`}
+                                    src={`${Instance.defaults.baseURL}/${product.image}`}
                                     alt={product.name}
                                     className="w-full h-48 object-cover rounded-lg mb-4"
                                 />

@@ -53,7 +53,7 @@ function ProductShow() {
                 <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
                     <div className="w-full max-w-2xl bg-white rounded-lg shadow-md overflow-hidden">
                         <img
-                            src={`http://localhost:4000/${product.image}`}
+                            src={`${Instance.defaults.baseURL}/${product.image}`}
                             alt="Product Name"
                             className="w-96 h-auto object-cover"
                         />

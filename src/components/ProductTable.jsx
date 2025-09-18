@@ -15,7 +15,7 @@ function ProductTable() {
     const [oldimage, setoldimage] = useState("")
     const [newimage, setnewimage] = useState("")
 
-    
+
     const data = async () => {
         const response = await Instance.get("/product/",)
         setproduct(response.data)
@@ -71,7 +71,7 @@ function ProductTable() {
 
         }
     }
-    const clearingvalue =()=>{
+    const clearingvalue = () => {
         setname("")
         setcategoryname("")
         setbrand("");
@@ -107,7 +107,7 @@ function ProductTable() {
                                     <td className="w-2/4 p-4 font-semibold text-xl">{i.categoryname}</td>
                                     <td className="w-2/4 p-4 font-semibold text-xl">{i.brand}</td>
                                     <td className="w-2/4 p-4 font-semibold text-xl">{i.price}</td>
-                                    <td className="w-2/4 p-4 font-semibold text-xl"><img src={`http://localhost:4000/${i.image}`} alt="" /></td>
+                                    <td className="w-2/4 p-4 font-semibold text-xl"><img src={`${Instance.defaults.baseURL}/${i.image}`} alt="" /></td>
                                     <td className='w-full flex flex-col gap-2 items-center justify-center'>
                                         <button className='w-20 h-8 rounded text-black font-bold  bg-green-600' onClick={() => { EditProduct(i) }}>Edit</button>
                                         <button className='w-20 h-8 rounded text-black font-bold  bg-red-600' onClick={() => { deleteproduct(i._id) }}>delete</button>
@@ -126,10 +126,10 @@ function ProductTable() {
                     <input type="text" className='bg-gray-300 h-7 border' placeholder='price' value={price} onChange={((e) => { setprice(e.target.value) })} />
                     <input type="file" className='bg-gray-300 h-7 border w-45' onChange={((e) => { setnewimage(e.target.files[0]) })} />
                     <div className='w-40'>
-                        <img src={`http://localhost:4000/${oldimage}`} alt="" />
+                        <img src={`${Instance.defaults.baseURL}/${oldimage}`} alt="" />
                     </div>
                     <div className='flex justify-center items-center gap-4  '>
-                        <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false); seteditid(null) ;clearingvalue() }}>Cancel</button>
+                        <button className='p-2 bg-gray-400 rounded text-center' onClick={() => { setshow(false); seteditid(null); clearingvalue() }}>Cancel</button>
                         <button className='p-2 bg-green-700 rounded text-center' onClick={() => { saveproduct() }} >Save</button>
                     </div>
                 </div>}

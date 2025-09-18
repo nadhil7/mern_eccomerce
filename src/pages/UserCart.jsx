@@ -70,7 +70,7 @@ function UserCart() {
                                 <div key={index} className="space-y-4">
                                     <div className="flex items-center justify-between bg-white p-4 rounded shadow">
                                         <div className="flex items-center space-x-4">
-                                            <img src={`http://13.232.71.99:4000/${i.image}`} alt="Product 1" className="w-16 h-16 object-cover rounded" />
+                                            <img src={`${Instance.defaults.baseURL}/${i.image}`} alt="Product 1" className="w-16 h-16 object-cover rounded" />
                                             <div>
                                                 <h2 className="font-semibold">{i.name}</h2>
                                                 <p className="text-sm text-gray-500">{i.discription}</p>

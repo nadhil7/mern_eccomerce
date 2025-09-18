@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logimg from '../assets/verify.png'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
-import axios from 'axios'
+import  Axios  from '../Axios'
 
 
 function AdminLogin() {
@@ -15,7 +15,7 @@ function AdminLogin() {
     
     const logincheck = async () => {
         try {
-            const response = await axios.post("http://localhost:4000/admin/login", { email: email, password: password }, { withCredentials: true })
+            const response = await Axios.post("/admin/login", { email: email, password: password }, { withCredentials: true })
             if (response.data.success) {
                 localStorage.setItem("Admin", response.data.Id)
                 navigate("/admin/dashboard");

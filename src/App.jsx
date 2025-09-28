@@ -19,9 +19,9 @@ import SearchingPage from './pages/SearchingPage'
 function App() {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
+      {/* <Route path='/' element={<Home />} />
       <Route path='/admin/login' element={<AdminLogin />} />
-      <Route path='/admin/dashboard' element={<Protection><Adminpage /></Protection>} />
+      <Route path='/admin/dashboard' element={<Protection><Adminpage /></Protection>} /> */}
       <Route path='/login' element={<UserLogin />} />
       <Route path='/user/signup' element={<UserSignup />} />
       <Route path='/admin/User' element={<Protection><UserManagement /></Protection>} />
